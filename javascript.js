@@ -382,7 +382,7 @@ function f()
 		{
 			index = 0;
 		}
-		if(player.dead)
+		if(player.dead || reallyDead)
 		{
 			//
 			dead();
@@ -494,6 +494,7 @@ function f()
 			}
 			else
 			{
+				health = -1;
 				frame--;
 				reallyDead = true;
 				player.jumping = false;
@@ -509,6 +510,7 @@ function f()
 				player.height = 160;
 				player.y = height - player.height-groundLevel;
 				music.pause();
+				deadMusic.play();
 				//location.reload();
 			}
 		if(deadTimer >= 60)
@@ -885,7 +887,7 @@ function f()
 				blocks[i].blockIndex++;
 				blocks[i].blockSlower = 0;
 			}
-			if(blocks[i].blockIndex >= 4 && (music.currentTime<33.66 || blocks[i].isSaw))
+			if(blocks[i].blockIndex >= 5 && (music.currentTime<33.66 || blocks[i].isSaw))
 			{
 				blocks[i].blockIndex = 1;
 			}
@@ -2053,7 +2055,7 @@ function f()
 		}
 		if(music.currentTime>=1.701 && music.currentTime<34)
 		{
-			if(curTime - 500 >= checkSecond)
+			if(curTime - 500 >= checkSecond && !reallyDead)
 			{
 				yPos=15;
 			}
