@@ -360,6 +360,18 @@ function f()
 	document.body.addEventListener("keydown", function(e)
 	{
 		keys[e.keyCode] = true;
+		if(!play)
+		{
+			if (keys[38] || keys[32])
+			{
+					play = true;
+					if(babbyMode)
+					{
+						health = 5;
+					}
+					update();
+			}
+		}
 	});
 	document.body.addEventListener("keyup", function(e){
 		keys[e.keyCode] = false;
@@ -2118,9 +2130,16 @@ function f()
 		if(music.currentTime>=33.66)
 		{
 		}
-			
-			/**ctx.font="50px Georgia";
-			ctx.fillText(1000/deltaTime2, 100, 100);
+		if(reallyDead)
+		{
+			ctx.fillStyle = "white";
+			ctx.font="60px 'algerian' ";
+			ctx.fillText("You made it "+Math.floor(frame/4000*100)+"% of the way.",102,height-groundLevel-60);
+			ctx.fillStyle = "black";
+			ctx.font="60px 'algerian' ";
+			ctx.fillText("You made it "+Math.floor(frame/4000*100)+"% of the way.",100,height-groundLevel-60);
+		}
+		/**	ctx.fillText(1000/deltaTime2, 100, 100);
 		timeToDraw = 
 		ctx.font = "15px, georgia";
 		ctx.fillText((frame),500,20);
