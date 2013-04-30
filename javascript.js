@@ -595,11 +595,11 @@ function f()
 			}
 			if(i < 8)
 			{
-				animation = "images/main walk cycle000";
+				animation = "images/mainWalkCycle000";
 				imageArray["walk"+(counter)] = new Image();
 				imageArray["walk"+(counter)].src = animation+(counter)+".PNG";
 				
-				animation = "images/Block Happy000";
+				animation = "images/BlockHappy000";
 				imageArray["onBlock"+(counter)] = new Image();
 				imageArray["onBlock"+(counter)].src = animation+(counter)+".PNG";
 			}
