@@ -189,8 +189,8 @@ function f()
 			var button1 = "buttons1";
 			var button2 = "buttons4";
 			ctx.drawImage(imageArray["menu"],  0, 0);
-			ctx.drawImage(imageArray[button1],  width*8/15, height/4);
-			ctx.drawImage(imageArray[button2],  width/6, height/4);
+			//ctx.drawImage(imageArray[button1],  width*8/15, height/4);
+			//ctx.drawImage(imageArray[button2],  width/6, height/4);
 		
 		document.body.addEventListener("mousedown", function(e)
 		{
@@ -215,8 +215,6 @@ function f()
 					if(y > 165 && y < 300)
 					{
 						babbyMode = true;
-						button1 = "buttons2";
-						button2 = "buttons3";
 					}
 				}
 				if(x > 540 && x < 830)
@@ -224,17 +222,29 @@ function f()
 					if(y > 165 && y < 300)
 					{
 						babbyMode = false;
-						button1 = "buttons1";
-						button2 = "buttons4";
 					}
 				}
 				ctx.clearRect(0,0,width,height);
+		}
+		});
 				
+				if(babbyMode)
+				{
+					button1 = "buttons2";
+					button2 = "buttons3";
+				}
+				else
+				{
+					button1 = "buttons1";
+					button2 = "buttons4";
+				}
 				ctx.drawImage(imageArray["menu"],  0, 0);
 				ctx.drawImage(imageArray[button1],  width*8/15, height/4);
 				ctx.drawImage(imageArray[button2],  width/6, height/4);
-		}
-		});
+				if(!play)
+				{
+					requestAnimationFrame(menu);
+				}
 	}
 	function update()
 	{
@@ -547,6 +557,10 @@ function f()
 		animation = "images/winish";
 		imageArray["winish"] = new Image();
 		imageArray["winish"].src = animation+".PNG";
+			
+		animation = "images/Heart000";
+		imageArray["heart1"] = new Image();
+		imageArray["heart1"].src = animation+(1)+".PNG";
 		
 		animation = "images/menu";
 		imageArray["menu"] = new Image();
@@ -567,19 +581,9 @@ function f()
 				imageArray["win"+(counter)] = new Image();
 				imageArray["win"+(counter)].src = animation+(counter)+".PNG";
 			}
-			if(i < 15)
-			{	
-				if(i < 9)
-				{
-				animation = "images/Trippy1000";
-				}
-				else
-				{
-				animation = "images/Trippy100";
-				}
-				imageArray["trippy1"+(counter)] = new Image();
-				imageArray["trippy1"+(counter)].src = animation+(counter)+".PNG";
-			}
+			//if(i < 15)
+			//{	
+			//}
 			if(i < 14)
 			{	
 				if(i < 9)
@@ -636,6 +640,10 @@ function f()
 				animation = "images/Mountain000";
 				imageArray["mountains"+(counter)] = new Image();
 				imageArray["mountains"+(counter)].src = animation+(counter)+".PNG";
+				
+				animation = "images/Trippy1000";
+				imageArray["trippy1"+(counter)] = new Image();
+				imageArray["trippy1"+(counter)].src = animation+(counter)+".PNG";
 			
 			}
 			if (i < 6)
@@ -663,10 +671,6 @@ function f()
 				animation = "images/Terrain000";
 				imageArray["ground"+(counter)] = new Image();
 				imageArray["ground"+(counter)].src = animation+(counter)+".PNG";
-				
-				animation = "images/Heart000";
-				imageArray["heart"+(counter)] = new Image();
-				imageArray["heart"+(counter)].src = animation+(counter)+".PNG";
 			}
 			if(i < 3)
 			{
