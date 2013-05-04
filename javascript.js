@@ -243,7 +243,7 @@ function f()
 				ctx.drawImage(imageArray[button2],  width/6, height/4);
 				if(!play)
 				{
-					requestAnimationFrame(menu);
+					setTimeout(menu, 1000/60);
 				}
 	}
 	function update()
@@ -363,7 +363,7 @@ function f()
 		}
 		else
 		{
-			requestAnimationFrame(update);
+			setTimeout(update, 1000/60);
 		}
 	}
 	
@@ -599,11 +599,11 @@ function f()
 			}
 			if(i < 8)
 			{
-				animation = "images/main walk cycle000";
+				animation = "images/mainWalkCycle000";
 				imageArray["walk"+(counter)] = new Image();
 				imageArray["walk"+(counter)].src = animation+(counter)+".PNG";
 				
-				animation = "images/Block Happy000";
+				animation = "images/BlockHappy000";
 				imageArray["onBlock"+(counter)] = new Image();
 				imageArray["onBlock"+(counter)].src = animation+(counter)+".PNG";
 			}
